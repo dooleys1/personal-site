@@ -68,38 +68,6 @@
         </div>
       </section>
     </main>
-    <script>
-      // Mobile menu toggle
-      const menuToggle = document.querySelector(".mobile-menu-toggle");
-      const nav = document.querySelector("nav");
-      const body = document.body;
-      const dropdowns = document.querySelectorAll(".dropdown");
-
-      menuToggle.addEventListener("click", () => {
-        menuToggle.classList.toggle("active");
-        nav.classList.toggle("active");
-        body.classList.toggle("menu-open");
-      });
-
-      // Close menu when clicking outside
-      body.addEventListener("click", (e) => {
-        if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-          menuToggle.classList.remove("active");
-          nav.classList.remove("active");
-          body.classList.remove("menu-open");
-        }
-      });
-
-      // Mobile dropdown toggle (only on mobile)
-      if (window.innerWidth <= 768) {
-        dropdowns.forEach((dropdown) => {
-          const link = dropdown.querySelector("a");
-          link.addEventListener("click", (e) => {
-            e.preventDefault();
-            dropdown.classList.toggle("active");
-          });
-        });
-      }
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -957,6 +957,31 @@ nav a:hover::before {
     background-color: #dbd8ce;
   }
 
+  /* Mobile dropdown trigger row (Writing + arrow) */
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* The arrow button that opens submenu on mobile */
+  .dropdown-toggle {
+    background: none;
+    border: none;
+    color: #56301d;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 20px 30px; /* match nav link padding in mobile */
+    line-height: 1;
+  }
+
+  /* Hide arrow on desktop (desktop uses hover dropdown) */
+  @media (min-width: 769px) {
+    .dropdown-toggle {
+      display: none;
+    }
+  }
+
   /* Mobile overlay */
   body::after {
     content: "";
@@ -986,5 +1011,47 @@ nav a:hover::before {
 @media (min-width: 769px) {
   .mobile-menu-toggle {
     display: none !important;
+  }
+}
+
+.project-card {
+  background: #faf7ed;
+  padding: 28px;
+  border-radius: 14px;
+  margin-bottom: 32px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.clickable-card {
+  cursor: pointer;
+}
+
+.clickable-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.clickable-card.card-clicked {
+  transform: scale(0.98);
+  opacity: 0.85;
+  box-shadow: none;
+}
+
+/* Ripple */
+.ripple {
+  position: absolute;
+  border-radius: 999px;
+  transform: scale(0);
+  animation: ripple 450ms ease-out;
+  background: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(12);
+    opacity: 0;
   }
 }
